@@ -3,8 +3,8 @@ name: snapcast-server
 version: dev
 slug: snapcastserver
 description: Create a snapcast server
-url: https://github.com/Art-Ev/addon-snapserver
-codenotary: arthur@evrard.dev
+url: https://github.com/hiousi/addon-snapserver
+codenotary: hiousi@yahoo.fr
 arch:
   - aarch64
   - amd64
