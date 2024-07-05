@@ -79,6 +79,6 @@ SOFTWARE.
 [patreon]: https://www.patreon.com/frenck
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [reddit]: https://reddit.com/r/homeassistant
-[releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-spotify-connect.svg
+[releases-shield]: https://img.shields.io/github/v/release/hiousi/addon-snapserver.svg
 [releases]: https://github.com/hiousi/addon-snapserver/releases
 [repository]: https://github.com/hassio-addons/repository
