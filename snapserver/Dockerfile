@@ -5,41 +5,29 @@ FROM $BUILD_FROM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-ARG LIBRESPOT_VERSION="0.4.2"
-# hadolint ignore=DL3003
-RUN \
-    apk add --no-cache --virtual .build-dependencies \
-        build-base=0.5-r3 \
-        cargo=1.78.0-r0 \
-        git=2.45.2-r0 \
-        protobuf-dev=3.21.12-r2 \
-        pulseaudio-dev=17.0-r0 \
-    \
-    && apk add --no-cache \
-        pulseaudio=17.0-r0 \
-    \
-    && cargo install \
-        --locked \
-        --no-default-features \
-        --features pulseaudio-backend \
-        --root /usr \
-        --bin librespot \
-        --version "${LIBRESPOT_VERSION}" \
-        --verbose \ 
-        -- librespot \
-    \
-    && apk del --no-cache --purge .build-dependencies \
-    && rm -fr \
-        /tmp/* \
-        ~/.cargo \
-        /usr/.crates.toml \
-        /usr/.crates2.json
+ARG SNAPCAST_VERSION="0.28.0-r2"
+ARG LIBRESPOT_VERSION="0.4.2-r4"
+ARG SNAPWEB_VERSION="0.7.0"
 
-#Install Snapcast
-RUN apk add --no-cache snapcast-server bash
+RUN \
+    apk add --no-cache \
+        pulseaudio bash \
+    && rm -fr \
+        /tmp/*
+
+RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community/ snapcast-server=${SNAPCAST_VERSION}
+
+RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ librespot=${LIBRESPOT_VERSION}
+
+RUN \
+    wget https://github.com/badaix/snapweb/releases/download/v${SNAPWEB_VERSION}/snapweb.zip && \
+    unzip -o snapweb.zip -d /usr/share/snapserver/snapweb/ && \
+    rm snapweb.zip
 
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+
 
 CMD [ "/run.sh" ]

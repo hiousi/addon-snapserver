@@ -15,7 +15,7 @@ map: ["share:rw"]
 audio: true
 init: false
 options:
-  streams: "source = spotify:///librespot?name=Spotify&bitrate=320"
+  streams: ["librespot:///librespot?name=Spotify&bitrate=320","librespot:///librespot?name=Spotify2&bitrate=320"]
   buffer: 1000
   codec: "flac"
   send_to_muted: "false"
@@ -26,7 +26,8 @@ options:
   server_threads: -1
   server_datadir: "/usr/share/snapserver/snapweb"
 schema:
-  streams: str
+  streams: 
+   - str
   buffer: int
   codec: str
   send_to_muted: str
@@ -36,8 +37,6 @@ schema:
   logging_enabled: str
   server_threads: int
   server_datadir: str
-  stream_bis: str?
-  stream_ter: str?
 ports:
   1704/tcp: 1704
   1705/tcp: 1705
