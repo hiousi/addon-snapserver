@@ -24,10 +24,10 @@ if ! bashio::fs.file_exists '/etc/snapserver.conf'; then
 fi
 bashio::log.info "Populating snapserver.conf..."
 
-echo "[stream]" > "${config}"
 # Streams
+echo "[stream]" > "${config}"
 streams=$(bashio::config 'streams')
-for stream in $(bashio::config 'stream.streams'); do
+for stream in $(bashio::config 'streams'); do
     echo "source = ${stream}" >> "${config}"
 done
 
