@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Snapcast
+# Snapcast add-on for Home Assistant
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -13,6 +13,11 @@
 
 [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhiousi%2Faddon-snapserver)
 
+This add-on allow you to have a snapcast server and/or client running on Home Assistant to get synchronius audio in multiple rooms.
+
+[Snapcast](https://github.com/badaix/snapcast) is a multiroom client-server audio player developed by [badaix](https://github.com/badaix), where all clients are time synchronized with the server to play perfectly synced audio. It's not a standalone player, but an extension that turns your existing audio player into a Sonos-like multiroom solution.
+
+[Read more about Snapcast here](https://github.com/badaix/snapcast)
 
 ## Contributing
 
